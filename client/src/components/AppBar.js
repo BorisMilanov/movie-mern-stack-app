@@ -8,6 +8,9 @@ import Typography from '@mui/material/Typography';
 import InputBase from '@mui/material/InputBase';
 import MenuIcon from '@mui/icons-material/Menu';
 import SearchIcon from '@mui/icons-material/Search';
+import { useDebounce } from "../hooks/debounceHook";
+import { useState } from "react";
+import axios from "axios";
 
 const Search = styled('div')(({ theme }) => ({
     position: 'relative',
@@ -52,6 +55,36 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 }));
 
 export default function SearchAppBar() {
+    const [searchQuery,setSearchQuery] = useState("");
+    const [noTvShows, setNoTvShows] = useState(false);
+    const changeHandler = (e) => {
+        e.preventDefault();
+        if (e.target.value.trim() === "") setNoTvShows(false);
+    
+        setSearchQuery(e.target.value);
+      };
+    
+    const prepareSearchQuery = (query) => {
+        const url = `http://api.tvmaze.com/search/shows?q=${query}`;
+    
+        return encodeURI(url);
+      };
+      const searchTvShow = async () => {
+        if (!searchQuery || searchQuery.trim() === "") return;
+    
+      
+    
+        const URL = prepareSearchQuery(searchQuery);
+    
+        const response = await axios.get(URL).catch((err) => {
+          console.log("Error: ", err);
+        });
+        if (response) {
+            console.log('Res ',response.data);
+        }
+   
+      };
+      useDebounce(searchQuery, 500, searchTvShow);
     return (
         <Box sx={{ flexGrow: 1 }}>
             <AppBar position="static">
@@ -78,8 +111,11 @@ export default function SearchAppBar() {
                             <SearchIcon />
                         </SearchIconWrapper>
                         <StyledInputBase
+                       
                             placeholder="Search…"
-                            inputProps={{ 'aria-label': 'search' }}
+                             inputProps={{ 'aria-label': 'search' }}
+                             value={searchQuery}
+                             onChange={changeHandler}
                         />
                     </Search>
                 </Toolbar>
