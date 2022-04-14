@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import axios from 'axios';
 const TvShowContainer = styled.div`
   width: 100%;
   min-height: 6em;
@@ -38,6 +39,13 @@ const Rating = styled.span`
 export function TvShow(props) {
     const { thumbanilSrc, name, rating } = props;
   
+    const onClickFavorite = () => {
+        axios.post('http://localhost:5000/addToFavorite').then(res=>console.log(res))
+        console.log(name);
+
+     }
+        
+    
     return (
       <TvShowContainer>
         <Thumbnail>
@@ -45,7 +53,7 @@ export function TvShow(props) {
         </Thumbnail>
         <Name>{name}</Name>
         <Rating>{rating || "N/A"}</Rating>
-        <button onClick={()=>console.log(name)}>Add</button>
+        <button onClick={onClickFavorite} >Add</button>
       </TvShowContainer>
     );
   }
