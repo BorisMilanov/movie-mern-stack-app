@@ -1,9 +1,9 @@
-import SearchAppBar from './components/AppBar'
+import {SearchBar} from './components/AppBar'
 
 const App = () => {
   return (
-    <div className="App"><SearchAppBar />
-      
+    <div className="App"><SearchBar />
+   
     </div>)
 }
 
