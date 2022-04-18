@@ -1,20 +1,20 @@
-const express = require('express');
-const router = express.Router();
+// const express = require('express');
+// const router = express.Router();
 
-const { Favorite } = require("../models/Favorite");
+// const { Favorite } = require("../models/Favorite");
 
 
-router.post("/addToFavorite", (req, res) => {
+// router.post("/addToFavorite", (req, res) => {
 
-    console.log(req.body)
+//     console.log(req.body)
 
-    const favorite = new Favorite(req.body);
+//     const favorite = new Favorite(req.body);
 
-    favorite.save((err, doc) => {
-        if (err) return res.json({ success: false, err })
-        return res.status(200).json({ success: true })
-    })
+//     favorite.save((err, doc) => {
+//         if (err) return res.json({ success: false, err })
+//         return res.status(200).json({ success: true })
+//     })
 
-});
+// });
 
-module.exports = router;
+// module.exports = router;

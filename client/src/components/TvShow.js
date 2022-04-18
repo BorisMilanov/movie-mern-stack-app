@@ -38,10 +38,22 @@ const Rating = styled.span`
 
 export function TvShow(props) {
     const { thumbanilSrc, name, rating } = props;
-  
+    const varas ={thumbanilSrc:thumbanilSrc,
+      name:name,
+    rap:rating}
     const onClickFavorite = () => {
-        axios.post('http://localhost:5000/addToFavorite').then(res=>console.log(res))
-        console.log(name);
+        axios.post('http://localhost:5000/hometest',varas).then((response) => {
+          
+        })
+        .then((data) => {
+          
+        })
+        // axios.get('http://localhost:5000/movieall').then((response) => {
+         
+        // })
+        // .then((data) => {
+        //   console.log(data);
+        // })
 
      }
         
