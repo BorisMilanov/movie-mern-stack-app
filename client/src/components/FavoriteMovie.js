@@ -26,7 +26,7 @@ export function DataFetv() {
 
   }
   useEffect(() => {
-    axios.get('http://localhost:5000/movieall').then((response) => {
+    axios.get('http://localhost:5000/showAllMovies').then((response) => {
       const data = response.data;
       setMovies(data)
 
@@ -38,10 +38,7 @@ const renderMovies =((movie,index) => (
     <Card.Img variant="top" src={movie.thumbanilSrc} />
     <Card.Body>
       <Card.Title>{movie.name}</Card.Title>
-      <Card.Text>
-        Some quick example text to build on the card title and make up the bulk of
-        the card's content.
-      </Card.Text>
+      <Card.Text>Rating: {movie.rating}</Card.Text>
       <Button variant="danger" onClick={()=>{onClickDelete(movie._id)}}>Delete</Button>
     </Card.Body>
   </Card>

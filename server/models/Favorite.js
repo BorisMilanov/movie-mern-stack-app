@@ -6,12 +6,13 @@ const favoriteSchema = mongoose.Schema({
         type: String
     },
     name : {
-        type: String
+        type: String,
+        unique:true
     },
-   
- 
-
-}, { timestamps: true })
+    rating:{
+        type: String
+    }
+ })
 
 
 const Favorite = mongoose.model('Favorite', favoriteSchema);

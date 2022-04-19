@@ -40,9 +40,9 @@ export function TvShow(props) {
     const { thumbanilSrc, name, rating } = props;
     const varas ={thumbanilSrc:thumbanilSrc,
       name:name,
-    rap:rating}
+    rating:rating}
     const onClickFavorite = () => {
-        axios.post('http://localhost:5000/hometest',varas).then((response) => {
+        axios.post('http://localhost:5000/addToFavorite',varas).then((response) => {
           
         })
         .then((data) => {
