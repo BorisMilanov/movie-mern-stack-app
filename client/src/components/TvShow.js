@@ -48,13 +48,6 @@ export function TvShow(props) {
         .then((data) => {
           
         })
-        // axios.get('http://localhost:5000/movieall').then((response) => {
-         
-        // })
-        // .then((data) => {
-        //   console.log(data);
-        // })
-
      }
         
     

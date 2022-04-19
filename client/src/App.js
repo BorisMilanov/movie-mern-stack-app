@@ -1,20 +1,28 @@
-import {SearchBar} from './components/AppBar'
-import { DataFetv } from './components/fav'
+import { SearchBar } from './components/AppBar'
+import { DataFetv } from './components/FavoriteMovie'
 import React from 'react'
-import axios from 'axios'
+import Home from "./Home";
 
+import {Container,Nav,Navbar} from 'react-bootstrap'
+// import Contact from "./Contact";
+// import About from "./About";
 
+import { BrowserRouter as Router, Routes, Route,Link } from "react-router-dom";
+import { makeStyles } from "@material-ui/core/styles";
+import "./App.css"
 const App = () => {
-  
-  
-  return (
-    <div className="App">
-      <SearchBar/>
-   <DataFetv/>
-     
-    
-    
-    </div>)
+
+
+  return( <Router>
+   <nav className="navbars">
+     <Link to="/" className="link">Home</Link>
+   </nav>
+
+    <Routes> 
+
+      <Route path="/" element={<Home/>}/>
+      </Routes> </Router>)
+   
 }
 // class App extends React.Component{
 //     state = {
@@ -46,7 +54,7 @@ const App = () => {
 //       <div>
 //         {this.displayBlogPost(this.state.posts)}
 //       </div>
-     
+
 //     </div>
 //   );
 // }
