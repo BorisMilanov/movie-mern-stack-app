@@ -12,7 +12,6 @@ router.post('/addToFavorite', async (req, res) => {
 })
 
 router.get('/showAllMovies', async (req, res) => {
-    // res.setHeader('Content-Type','application/json')
     try {
         let movies = await movieService.getAll()
         res.status(200).json(movies)
@@ -25,9 +24,8 @@ router.delete('/deleteMovie/:id', async (req, res) => {
     try {
         const id = req.params.id
         await movieService.deletes(id)
-        console.log(req.params.id);
     } catch (error) {
-
+        res.status(404).json({ message: error.message });
     }
 })
 
