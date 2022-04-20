@@ -2,5 +2,5 @@ const mongoose = require('mongoose');
 
 
 exports.initDatabase = function () {
-    return mongoose.connect('mongodb://localhost:27017/mernt');
+    return mongoose.connect('mongodb+srv://borisMilnov:ecmascript96@cluster0.mong8.mongodb.net/test');
 }

@@ -10,7 +10,7 @@ const favoriteSchema = mongoose.Schema({
         unique:true
     },
     rating:{
-        type: String
+        type: Number
     }
  })
 

@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import axios from 'axios';
+import { Button } from "react-bootstrap";
 const TvShowContainer = styled.div`
   width: 100%;
   min-height: 6em;
@@ -37,28 +38,30 @@ const Rating = styled.span`
 `;
 
 export function TvShow(props) {
-    const { thumbanilSrc, name, rating } = props;
-    const varas ={thumbanilSrc:thumbanilSrc,
-      name:name,
-    rating:rating}
-    const onClickFavorite = () => {
-        axios.post('http://localhost:5000/addToFavorite',varas).then((response) => {
-          
-        })
-        .then((data) => {
-          
-        })
-     }
-        
-    
-    return (
-      <TvShowContainer>
-        <Thumbnail>
-          <img src={thumbanilSrc} />
-        </Thumbnail>
-        <Name>{name}</Name>
-        <Rating>{rating || "N/A"}</Rating>
-        <button onClick={onClickFavorite} >Add</button>
-      </TvShowContainer>
-    );
+  const { thumbanilSrc, name, rating } = props;
+  const varas = {
+    thumbanilSrc: thumbanilSrc,
+    name: name,
+    rating: rating
   }
+  const onClickFavorite = () => {
+    axios.post('http://localhost:5000/addToFavorite', varas).then((response) => {
+
+    })
+      .then((data) => {
+
+      })
+  }
+
+
+  return (
+    <TvShowContainer>
+      <Thumbnail>
+        <img src={thumbanilSrc} />
+      </Thumbnail>
+      <Name>{name}</Name>
+      <Rating>{rating || "N/A"}</Rating>
+      <Button variant="success" onClick={onClickFavorite} >Add</Button>
+    </TvShowContainer>
+  );
+}

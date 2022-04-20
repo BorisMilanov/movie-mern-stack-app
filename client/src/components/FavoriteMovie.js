@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-import {Card, Button } from 'react-bootstrap'
+import { Card, Button } from 'react-bootstrap'
 
 import "./FavoriteMovie.css"
 
-export function DataFetv() {
+export function FavoriteMovie() {
   const [movies, setMovies] = useState([]);
   const onClickDelete = (id) => {
 
@@ -15,15 +15,7 @@ export function DataFetv() {
       }))
     })
       .then((data) => {
-
       })
-    // axios.get('http://localhost:5000/movieall').then((response) => {
-
-    // })
-    // .then((data) => {
-    //   console.log(data);
-    // })
-
   }
   useEffect(() => {
     axios.get('http://localhost:5000/showAllMovies').then((response) => {
@@ -33,21 +25,15 @@ export function DataFetv() {
     }).catch((err) => console.log(err))
   })
 
-const renderMovies =((movie,index) => (
-    <Card  style={{ width: '18rem' }} key={index} className="box">
-    <Card.Img variant="top" src={movie.thumbanilSrc} />
-    <Card.Body>
-      <Card.Title>{movie.name}</Card.Title>
-      <Card.Text>Rating: {movie.rating}</Card.Text>
-      <Button variant="danger" onClick={()=>{onClickDelete(movie._id)}}>Delete</Button>
-    </Card.Body>
-  </Card>
-    // <li key={movie.id}>    <img src={movie.thumbanilSrc} />
-
-
-    // <h1>{movie.name}</h1>
-    // <button onClick={()=>{onClickDelete(movie._id)}}>Remove</button>
-    // </li>
+  const renderMovies = ((movie, index) => (
+    <Card style={{ width: '18rem' }} key={index} className="box">
+      <Card.Img variant="top" src={movie.thumbanilSrc} />
+      <Card.Body>
+        <Card.Title>{movie.name}</Card.Title>
+        <Card.Text>Rating: {movie.rating}</Card.Text>
+        <Button variant="danger" onClick={() => { onClickDelete(movie._id) }}>Delete</Button>
+      </Card.Body>
+    </Card>
   ))
 
   return (<div className="rowmovie"> {movies.map(renderMovies)}</div>
