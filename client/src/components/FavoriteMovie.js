@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-import { Card, Button } from 'react-bootstrap'
+import { Card, Button } from 'react-bootstrap';
 
-import "./FavoriteMovie.css"
+import "./FavoriteMovie.css";
 
 export function FavoriteMovie() {
   const [movies, setMovies] = useState([]);

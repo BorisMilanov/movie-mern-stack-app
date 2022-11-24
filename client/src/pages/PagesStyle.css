@@ -1,0 +1,44 @@
+body{
+    background:#AF7AC5;
+ }
+.slantedDivA{
+    position: relative;
+    width: 100%;
+    height: 350px;
+    background: #CA6F1E;
+    margin-bottom: 90px;
+}
+
+.slantedDivA:after{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    content: '';
+    background: inherit;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    transform-origin: top left;
+    transform: skewY(4deg);
+}
+
+.slantedDivB{
+    position: relative;
+    width: 100%;
+    height: 400px;
+    background: #D0D3D4;
+}
+.slantedDivB:after{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    content: '';
+    background: inherit;
+    top:0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    transform-origin: top left;
+    transform: skewY(-9deg);
+}
