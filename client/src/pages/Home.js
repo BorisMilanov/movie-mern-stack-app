@@ -1,5 +1,6 @@
 import React from "react";
-import './PagesStyle.css'
+import './PagesStyle.css';
+
 function Home() {
     return <div >
 

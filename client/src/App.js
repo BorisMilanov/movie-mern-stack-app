@@ -18,7 +18,7 @@ const App = () => {
       <Route path="/" element={<Home />} />
       <Route path="/collectedmovies" element={<CollectedMovies />} />
       <Route path="/about" element={<About />} />
-    </Routes><footer className='footer'> <p>Author: Boris Milanov</p>
+    </Routes><footer className='footer'> <p className='authorEl'>Author: Boris Milanov</p>
   <a href="boris.mil.96@gmail.com">boris.mil.96@gmail.com</a></footer> </Router>)
 
 }

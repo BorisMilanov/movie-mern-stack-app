@@ -7,6 +7,7 @@ router.post('/addToFavorite', async (req, res) => {
         let { thumbanilSrc, name, rating} = req.body;
         await movieService.create(thumbanilSrc, name, rating);
     } catch (error) {
+        console.log(a + error);
         res.status(401).json(error);
     }
 })
